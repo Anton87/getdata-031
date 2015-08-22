@@ -25,7 +25,7 @@ This is accoomplished thorugh the following steps:
 The code requires to load the reshape2 library.
 
 
-### Downloading and unzipping of the data 
+### 1. Downloading and unzipping of the data 
 
 The following code creates a directory named data, download the zipped data and then unzip the archive in the data dir.
 
@@ -51,3 +51,40 @@ if (!dir.exists("data/UCI HAR Dataset")) {
 }
 
 ```
+
+1. Merge the training and the test sets to create one data set.
+
+The function read.tables load a dataset split across different files.
+
+The code use the function read.tables to load the train and test dataset.
+
+The train and test dataset are then merged.
+
+```
+# read train set
+message("Read train data from: data/UCI HAR Dataset/train... ", appendLF = FALSE)
+train <- read.tables(
+    "data/UCI HAR Dataset/train/subject_train.txt",
+    "data/UCI HAR Dataset/train/X_train.txt",
+    "data/UCI HAR Dataset/train/y_train.txt"
+    )
+message("done.")
+
+# read test set
+message("Read test data from: data/UCI HAR Dataset/test... ", appendLF = FALSE)
+test <- read.tables(
+    "data/UCI HAR Dataset/test/subject_test.txt",
+    "data/UCI HAR Dataset/test/X_test.txt",
+    "data/UCI HAR Dataset/test/y_test.txt"
+    )
+message("done.")
+
+# merge train an test data
+message("Merging train and test data... ", appendLF = FALSE)
+data <- rbind(train, test)
+message("done.")
+```
+
+
+
+
