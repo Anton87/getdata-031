@@ -6,10 +6,14 @@ Antonio Uva
 
 
 ## Introduction
+The aim of this project is to show how to collect, work with, and clean a data set.
 
 
 ## Code Walkthrough
 The run_analysis.R script creates a tidy version of the data set that can be download at https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip.
+
+This data set contains data collected from accelerometers from Samsung Galaxy S Smartphone. More info about the data can be found here: 
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
 This is accoomplished thorugh the following steps:
 
@@ -133,7 +137,7 @@ message("done.")
 
 This last code creates a tidy version of the dataset by averaging the value of the variables by subject and activity type.
 
-Then write the code on the tidy.txt file.
+Then writea the code on the tidy.txt file.
 
 ```R
 library(reshape2)
