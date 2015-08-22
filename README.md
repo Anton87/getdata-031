@@ -27,7 +27,7 @@ The code requires to load the reshape2 library.
 
 ### 1. Downloading and unzipping of the data 
 
-The following code creates a directory named data, download the zipped data and then unzip the archive in the data dir.
+The following code creates a directory named data, downloads the zipped project data and then unzips the archive in the data dir.
 
 ```
 url = "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
@@ -52,11 +52,12 @@ if (!dir.exists("data/UCI HAR Dataset")) {
 
 ```
 
-1. Merge the training and the test sets to create one data set.
 
-The function read.tables load a dataset split across different files.
+### 2. Merge the training and the test sets to create one data set.
 
-The code use the function read.tables to load the train and test dataset.
+The function read.tables loads a dataset split across different files.
+
+The code uses the function read.tables to load the train and test dataset.
 
 The train and test dataset are then merged.
 
