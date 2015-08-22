@@ -101,3 +101,48 @@ newdata <- data[, myvars]
 message("done.")
 ```
 
+
+### 4. Use descriptive activity names to name the activities in the data set
+
+This snippet replaces the activity ids in the dataset with descriptive activity names from the file activity_labels.txt.
+
+```
+message("Labeling data using descriptive activity names... ", appendLF = FALSE)
+# load activity labels
+activity_labels <- as.vector(read.table("data/UCI HAR Dataset/activity_labels.txt")$V2)
+# replace activiy with labels
+newdata$activity <- sapply(newdata$activity, function(activity_id){activity_labels[activity_id]})
+message("done.")
+```
+
+
+### 5. Appropriately labels the data set with descriptive variable names.
+
+This piece of code replace the column names of the data set iwth descriptive variables names from file features.txt.
+
+```R
+features <- c(c("subject", as.vector(read.table("data/UCI HAR Dataset/features.txt")$V2)), "activity")
+
+# set feature names
+message("Labeling the data using descriptive names for the variables... ", appendLF = FALSE)
+colnames(data) <- features
+message("done.")
+```
+
+```
+
+```
+library(reshape2)
+
+message("Building tidy set... ", appendLF = FALSE)
+# melt dataset: use subject and activity as id vars
+newdataMelt <- melt(newdata, id=c("subject", "activity"))
+# recast dataset: break down variables by subject and activity
+tidyData <- dcast(newdataMelt, subject + activity ~ variable, mean)
+message("done.")
+
+# write tidy file
+message("Writing tidy file: data/UCI HAR Dataset/tidy.txt... ", appendLF = FALSE) 
+write.csv(tidyData, "data/UCI HAR Dataset/tidy.txt", row.names = FALSE)
+message("done.")
+```
