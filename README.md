@@ -118,7 +118,7 @@ message("done.")
 
 ### 5. Appropriately labels the data set with descriptive variable names.
 
-This piece of code replace the column names of the data set iwth descriptive variables names from file features.txt.
+This piece of code replaces the column names of the data set with descriptive variables names from file features.txt.
 
 ```R
 features <- c(c("subject", as.vector(read.table("data/UCI HAR Dataset/features.txt")$V2)), "activity")
@@ -129,7 +129,11 @@ colnames(data) <- features
 message("done.")
 ```
 
-```
+### 6. Create a second, independent tidy data set with the average of each variable for each activity and each subject.
+
+This last code creates a tidy version of the dataset by averaging the value of the variables by subject and activity type.
+
+Then write the code on the tidy.txt file.
 
 ```
 library(reshape2)
