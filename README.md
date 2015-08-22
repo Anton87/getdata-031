@@ -30,24 +30,24 @@ The code requires to load the reshape2 library.
 The following code creates a directory named data, download the zipped data and then unzip the archive in the data dir.
 
 ```
-	url = "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+url = "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 
-	# create data directory 
-	dir.create(file.path(".", "data"), showWarnings = FALSE)
+# create data directory 
+dir.create(file.path(".", "data"), showWarnings = FALSE)
 
-	# download project data
-	filename = "data/UCI_HAR_Dataset.zip"
-	if (!file.exists(filename)) {
-	    message("Downloading the data from: ", url, "...", appendLF = FALSE)
-	    download.file(url, filename)
-	    message("done.")
-	}
+# download project data
+filename = "data/UCI_HAR_Dataset.zip"
+if (!file.exists(filename)) {
+    message("Downloading the data from: ", url, "...", appendLF = FALSE)
+    download.file(url, filename)
+    message("done.")
+}
 
-	# unzip project data
-	if (!dir.exists("data/UCI HAR Dataset")) { 
-	    message("Unzipping the data in: data/UCI HAR Dataset... ", appendLF = FALSE)
-	    unzip(filename, exdir = "data")
-	    message("done.")
-	}
+# unzip project data
+if (!dir.exists("data/UCI HAR Dataset")) { 
+    message("Unzipping the data in: data/UCI HAR Dataset... ", appendLF = FALSE)
+    unzip(filename, exdir = "data")
+    message("done.")
+}
 
 ```
