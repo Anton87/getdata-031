@@ -29,7 +29,7 @@ The code requires to load the reshape2 library.
 
 The following code creates a directory named data, downloads the zipped project data and then unzips the archive in the data dir.
 
-```
+```R
 url = "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 
 # create data directory 
@@ -61,7 +61,7 @@ The code uses the function read.tables to load the train and test dataset.
 
 The train and test dataset are then merged.
 
-```
+```R
 # read train set
 message("Read train data from: data/UCI HAR Dataset/train... ", appendLF = FALSE)
 train <- read.tables(
@@ -93,7 +93,7 @@ The following code filters out the columns that do not contain the mean and stan
 
 The subject and activity columns are also retained.
 
-```
+```R
 message("Extracting only mean and std measurements... ", appendLF = FALSE)
 # filter out coloumns that do not contain mean and standard deviation of each measurement.
 myvars <- sapply(names(data), function(colname){colname %in% c("subject", "activity") || grepl("mean", tolower(colname)) || grepl("std", tolower(colname))}, USE.NAMES = FALSE)
@@ -106,7 +106,7 @@ message("done.")
 
 This snippet replaces the activity ids in the dataset with descriptive activity names from the file activity_labels.txt.
 
-```
+```R
 message("Labeling data using descriptive activity names... ", appendLF = FALSE)
 # load activity labels
 activity_labels <- as.vector(read.table("data/UCI HAR Dataset/activity_labels.txt")$V2)
@@ -135,7 +135,7 @@ This last code creates a tidy version of the dataset by averaging the value of t
 
 Then write the code on the tidy.txt file.
 
-```
+```R
 library(reshape2)
 
 message("Building tidy set... ", appendLF = FALSE)
