@@ -53,7 +53,7 @@ if (!dir.exists("data/UCI HAR Dataset")) {
 ```
 
 
-### 2. Merge the training and the test sets to create one data set.
+### 2. Merge the training and the test sets to create one data set
 
 The function read.tables loads a dataset split across different files.
 
@@ -87,5 +87,17 @@ message("done.")
 ```
 
 
+### 3. Extract only the measurements on the mean and standard deviation for each measurement
 
+The following code filters out the columns that do not contain the mean and standard deviation for each measurement by checking that column names contain the words "mean" and "std".
+
+The subject and activity columns are also retained.
+
+```
+message("Extracting only mean and std measurements... ", appendLF = FALSE)
+# filter out coloumns that do not contain mean and standard deviation of each measurement.
+myvars <- sapply(names(data), function(colname){colname %in% c("subject", "activity") || grepl("mean", tolower(colname)) || grepl("std", tolower(colname))}, USE.NAMES = FALSE)
+newdata <- data[, myvars]
+message("done.")
+```
 
