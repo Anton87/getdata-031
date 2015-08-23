@@ -28,14 +28,14 @@ This is accoomplished thorugh the following steps:
 You can read the tidy version of the data set created by this script by running:
 
 ```R
-tidy <- read.csv("data/UCI HAR Dataset/tidy.txt")
+	tidy <- read.csv("data/UCI HAR Dataset/tidy.txt")
 
 ```
 
 
 
 ### Prerequisites  
-The code requires to load the reshape2 library.
+The code requires the reshape2 library; make sure it is installed.
 
 
 ### 1. Downloading and unzipping of the data 
