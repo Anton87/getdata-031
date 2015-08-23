@@ -25,6 +25,15 @@ This is accoomplished thorugh the following steps:
 5. Create a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 
+You can read the tidy version of the data set created by this script by running:
+
+```R
+shell> > tidy <- read.csv("data/UCI HAR Dataset/tidy.txt")
+
+```
+
+
+
 ### Prerequisites  
 The code requires to load the reshape2 library.
 
@@ -137,7 +146,7 @@ message("done.")
 
 This last code creates a tidy version of the dataset by averaging the value of the variables by subject and activity type.
 
-Then writea the code on the tidy.txt file.
+Then writes the code on the tidy.txt file.
 
 ```R
 library(reshape2)
