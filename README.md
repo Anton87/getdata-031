@@ -28,7 +28,7 @@ This is accoomplished thorugh the following steps:
 You can read the tidy version of the data set created by this script by running:
 
 ```R
-shell> > tidy <- read.csv("data/UCI HAR Dataset/tidy.txt")
+tidy <- read.csv("data/UCI HAR Dataset/tidy.txt")
 
 ```
 
