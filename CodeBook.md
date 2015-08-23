@@ -1,5 +1,5 @@
 subject
-	- An identifier of th subject  who carride out the experiment 
+	* An identifier of th subject  who carride out the experiment 
 
 tBodyAcc-mean()-X
 	Mean of the exstimated body acceleration on the X axis
